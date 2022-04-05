@@ -4,6 +4,41 @@
 <body>
     <h1>Login</h1>
     <%- include('./partials/nav')%>
+    
+    <!-- <form action="/login" method="POST">
+        <div class="container">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </div>
+    </form> -->
+
+    <form action="/login" method="POST">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" required>
+        <div class="email error"></div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+        <div class="password error"></div>
+        <button>Register</button>
+    </form>
+
+    <script>
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            //get the values
+            const email = form.email.value;
+            const password = form.password.value;
+
+            console.log(email,password)
+        })
+    </script>
+
     <%- include( './partials/footer' ); %>
 </body>
 </html>
