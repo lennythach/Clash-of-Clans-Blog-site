@@ -9,8 +9,6 @@ router.post('/register',authController.register_post);
 
 router.get('/login', authController.login_get);
 
-router.post('/login', (req, res)=> {
-    console.log(req.body)
-})
+router.post('/login', authController.login_post);
 
 module.exports = router;
