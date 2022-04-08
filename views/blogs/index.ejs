@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<body>
+
+    <h1>Welcome to the Home Page</h1>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="blogs/create">Post</a>
+    </nav>
+
+    <div class="blogs content">
+        <h2>All Blogs</h2>
+
+        <% if (bloggers.length > 0){ %>
+            <% bloggers.forEach(blog=>{ %>
+                <a class="single" href="/blogs/<%= blog._id %>">
+                    <h3 class="title"><%= blog.title %></h3>
+                    <p class="snippet"><%= blog.snippet %></p>
+                </a>
+            <%})%>
+        <%} else {%>
+            <h3>No one is trying to blog</h3>
+        <%}%>
+    </div>
+
+
+    <%- include( '../partials/footer' ); %>
+</body>
+</html>

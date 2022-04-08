@@ -40,7 +40,7 @@ const createToken = (id)=> {
 }
 
 module.exports.register_get = (req,res)=>{
-    res.render('register', {title:'Register'})
+    res.render('./auth/register', {title:'Register'})
 }
 
 module.exports.register_post = async (req,res)=>{
@@ -59,7 +59,7 @@ module.exports.register_post = async (req,res)=>{
 }
 
 module.exports.login_get = (req, res)=> {
-    res.render('login', {title:'Login'})
+    res.render('./auth/login', {title:'Login'})
 }
 
 module.exports.login_post = async (req, res)=> {

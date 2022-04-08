@@ -2,13 +2,16 @@ const express = require('express');
 
 const mongoose = require('mongoose');
 const authRouter = require('./routes/authRoutes');
+const blogRoutes = require('./routes/blogRoutes');
 const cookieParser = require('cookie-parser');
+const { requireAuth } = require('./middleware/authMiddleware');
 require('dotenv').config();
 
 const app = express();
 
 // Register our view engine and middlewares
 app.set('view engine', 'ejs');
+app.use(express.static('./public'));
 app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
 app.use(cookieParser());
@@ -21,7 +24,8 @@ mongoose.connect(dbURI, { useNewUrlParser:true, useUnifiedTopology:true })
     .catch((err)=>console.log(err))
 
 app.get('/', (req,res)=>{
-    res.render('index', {title:'Home Page'});
+    res.redirect('/blogs')
+    // res.render('./blog/index', {title:'Home Page'});
 });
 
 app.get('/about', (req,res)=>{
@@ -30,3 +34,4 @@ app.get('/about', (req,res)=>{
 
 app.use(authRouter);
 
+app.use(blogRoutes);
