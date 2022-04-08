@@ -5,7 +5,7 @@ const authRouter = require('./routes/authRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const cookieParser = require('cookie-parser');
 const { requireAuth } = require('./middleware/authMiddleware');
-require('dotenv').config();
+// require('dotenv').config();
 
 const app = express();
 
@@ -18,7 +18,8 @@ app.use(cookieParser());
 
 //Connecting to our Database and accessing a PORT
 const PORT =  process.env.PORT || 8000;
-const dbURI = process.env.DB_KEY;
+const dbURI = "mongodb+srv://lennythach:bboy4life253@firstdb.edjdx.mongodb.net/HeroDB?retryWrites=true&w=majority"
+// const dbURI = process.env.DB_KEY;
 mongoose.connect(dbURI, { useNewUrlParser:true, useUnifiedTopology:true })
     .then((result)=> app.listen(PORT, console.log(`Connected to DB Server running on http://localhost:${PORT}`)))
     .catch((err)=>console.log(err))
