@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const requireAuth = (req, res, next) => {
-    const token = req.cookes.jwt;
+    const token = req.cookies.jwt;
 
     if (token) {
         jwt.verify(token, 'Super Duper Hero Blog', (err, decodedToken) => {

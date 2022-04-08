@@ -1,17 +1,18 @@
 const express = require('express');
-const blogController = require('../controllers/blogController')
+const blogController = require('../controllers/blogController');
+const { requireAuth } = require('../middleware/authMiddleware');
 const routes = express();
 
 
-routes.get('/blogs', blogController.blog_index);
+routes.get('/blogs', requireAuth, blogController.blog_index);
 
-routes.get('/blogs/create', blogController.blog_create_index);
+routes.get('/blogs/create', requireAuth, blogController.blog_create_index);
 
-routes.post('/blogs', blogController.blog_create_post);
+routes.post('/blogs', requireAuth, blogController.blog_create_post);
 
-routes.get('/blogs/:id', blogController.blog_get_id);
+routes.get('/blogs/:id', requireAuth, blogController.blog_get_id);
 
-routes.delete('/blogs/:id', blogController.blog_delete);
+routes.delete('/blogs/:id', requireAuth, blogController.blog_delete);
 
 
 

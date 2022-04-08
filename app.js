@@ -10,11 +10,12 @@ const { requireAuth } = require('./middleware/authMiddleware');
 const app = express();
 
 // Register our view engine and middlewares
+app.use(cookieParser());
 app.set('view engine', 'ejs');
 app.use(express.static('./public'));
 app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
-app.use(cookieParser());
+
 
 //Connecting to our Database and accessing a PORT
 const PORT =  process.env.PORT || 8000;
@@ -25,7 +26,7 @@ mongoose.connect(dbURI, { useNewUrlParser:true, useUnifiedTopology:true })
     .catch((err)=>console.log(err))
 
 app.get('/', (req,res)=>{
-    res.redirect('/blogs')
+    res.redirect('/login')
     // res.render('./blog/index', {title:'Home Page'});
 });
 
