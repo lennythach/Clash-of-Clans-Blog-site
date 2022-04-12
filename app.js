@@ -5,7 +5,7 @@ const authRouter = require('./routes/authRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const cookieParser = require('cookie-parser');
 const { requireAuth } = require('./middleware/authMiddleware');
-require('dotenv').config();
+// require('dotenv').config();
 
 const app = express();
 
@@ -16,7 +16,7 @@ app.use(express.static('./public'));
 app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
 
-PORT = process.env.PORT || 8000;
+PORT = process.env.PORT || 8080;
 //Connecting to our Database and accessing a PORT
 mongoose.connect(process.env.DB_KEY, { useNewUrlParser:true, useUnifiedTopology:true })
     .then((result)=> app.listen(PORT, console.log(`Connected to DB Server running on http://localhost:${PORT}`)))
