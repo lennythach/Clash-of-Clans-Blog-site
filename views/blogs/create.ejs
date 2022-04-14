@@ -3,12 +3,15 @@
 <%- include('../partials/head.ejs') %>
 <body>
     <h1>We Creating shiet!</h1>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="blogs/create">Post</a>
-    </nav>
 
+    <nav>
+        <ul>
+            <li><a href="/blogs">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="blogs/create">Post</a></li>
+            <li><a href="/logout">Log out</a></li>
+        </ul>
+    </nav>
     <div class="create-blog content">
         <form action="/blogs" method="POST">
             <label for="title">Blog title</label>
