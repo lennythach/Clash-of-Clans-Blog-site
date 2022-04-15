@@ -1,8 +1,17 @@
 <nav>
-    <a href="/login">Login</a>
-    <a href="/register">Register</a>
-    <a href="/about">About</a>
-    <a href="/">Home</a>
-    <a href="/create">Post</a>
+    <h1>COC Strats</h1>
+    <ul>
+        <li><a href="/blogs">Home</a></li>
+        <li><a href="/about">About</a></li>
+
+        <% if (user) { %>
+            <li><a href="blogs/create">Post</a></li>
+            <li><a href="/logout">Log out</a></li>
+        <% } else { %>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+        <% } %>
+
+    </ul>
 
 </nav>

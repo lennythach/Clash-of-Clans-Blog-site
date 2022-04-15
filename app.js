@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const authRouter = require('./routes/authRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const cookieParser = require('cookie-parser');
-const { requireAuth } = require('./middleware/authMiddleware');
+const { requireAuth, checkUser } = require('./middleware/authMiddleware');
 require('dotenv').config();
 
 const app = express();
@@ -22,6 +22,8 @@ mongoose.connect(process.env.DB_KEY, { useNewUrlParser:true, useUnifiedTopology:
     .then((result)=> app.listen(PORT, console.log(`Connected to DB Server running on http://localhost:${PORT}`)))
     .catch((err)=>console.log(err))
 
+// routes
+app.get('*', checkUser);
 app.get('/', (req,res)=>{
     res.redirect('/login')
     // res.render('./blog/index', {title:'Home Page'});

@@ -4,7 +4,7 @@ const { requireAuth } = require('../middleware/authMiddleware');
 const routes = express();
 
 
-routes.get('/blogs', requireAuth, blogController.blog_index);
+routes.get('/blogs', blogController.blog_index);
 
 routes.get('/blogs/create', requireAuth, blogController.blog_create_index);
 
