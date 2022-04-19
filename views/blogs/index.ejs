@@ -6,17 +6,20 @@
     <%- include('../partials/nav') %>
 
     <div class="blogs content">
-        <h2>All Blogs</h2>
+        <h2 class="mb-4">Blogs Article</h2>
+        <a href="/blogs/create" class="btn btn-success mb-4">New Post</a>
 
         <% if (bloggers.length > 0){ %>
             <% bloggers.forEach(blog=>{ %>
-                <a class="single" href="/blogs/<%= blog._id %>">
-                    <h3 class="title"><%= blog.title %></h3>
-                    <p class="snippet"><%= blog.snippet %></p>
-                </a>
+                <div class="card mt-4">
+                    <a class="single" href="/blogs/<%= blog._id %>">
+                        <h3 class="title"><%= blog.title %></h3>
+                        <p class="snippet"><%= blog.snippet %></p>
+                    </a>
+                </div>
             <%})%>
         <%} else {%>
-            <h3>No one is trying to blog</h3>
+            <h3>No Post Created.</h3>
         <%}%>
     </div>
 

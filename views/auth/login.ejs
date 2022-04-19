@@ -2,23 +2,24 @@
 <html lang="en">
 <%- include('../partials/head'); %>
 <body>
-    <!-- <h1>Login</h1> -->
-    <!-- <nav>
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
-    </nav> -->
     <%- include('../partials/nav') %>
     
 
-    <form action="/login" method="POST">
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" required>
-        <div class="email error"></div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-        <div class="password error"></div>
-        <button>login</button>
-    </form>
+    <div class="text-center mt-5">
+        <form style="max-width:480px; margin:auto;" action="/login" method="POST">
+            <!-- <img src="https://github.com/lennythach/LeetcodePics/blob/master/IMG_1283.jpg" alt="barbarian logo"/> -->
+            <h1 class="h2 mb-3 font-weight-normal">Please Sign In</h1>
+            <label for="email" class="sr-only"></label>
+            <input type="text" id="email" class="form-control" placeholder="Email Address" required autofocus>
+            <div class="email error"></div>
+            <label for="password" class="sr-only"></label>
+            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+            <div class="password error"></div>
+            <div class="mt-3">
+                <button class="btn btn-lg btn-primary btn-block">login</button>
+            </div>
+        </form>
+    </div>
 
     <script>
         const form = document.querySelector('form');

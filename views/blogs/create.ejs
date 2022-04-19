@@ -3,7 +3,7 @@
 <%- include('../partials/head.ejs') %>
 <body>
     <%- include('../partials/nav') %>
-    <div class="create-blog content">
+    <!-- <div class="create-blog content">
         <form action="/blogs" method="POST">
             <label for="title">Blog title</label>
             <input type="text" id="title" name="title" required>
@@ -12,6 +12,22 @@
             <label for="body">Blog body</label>
             <textarea id="body" name="body" required></textarea>
             <button>Submit</button>
+        </form>
+    </div> -->
+
+    <div class="text-center mt-5">
+        <form style="max-width:480px; margin:auto;" action="/blogs" method="POST">
+            <!-- <img src="https://github.com/lennythach/LeetcodePics/blob/master/IMG_1283.jpg" alt="barbarian logo"/> -->
+            <h1 class="h2 mb-3 font-weight-normal">Post a blog here</h1>
+            <label for="title" class="sr-only"></label>
+            <input type="text" id="title" name="title" class="form-control" placeholder="Blog Title" required autofocus>
+            <label for="snippet" class="sr-only"></label>
+            <input type="text" id="snippet" name="snippet" class="form-control" placeholder="Snippet" required>
+            <label for="body" class="sr-only"></label>
+            <textarea id="body" name="body" class='form-control' placeholder="Blog Body" required></textarea>
+            <div class="mt-3">
+                <button class="btn btn-lg btn-primary btn-block">Submit</button>
+            </div>
         </form>
     </div>
 
